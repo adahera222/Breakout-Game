@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\MyScripts\BallMovement.cs" />
      <Compile Include="Assets\MyScripts\CollisionDetection\BallCollisionDetector.cs" />
+     <Compile Include="Assets\MyScripts\CollisionDetection\EdgeCollision.cs" />
      <Compile Include="Assets\MyScripts\CollisionDetection\PaddleCollisionDetector.cs" />
      <Compile Include="Assets\MyScripts\My2DController.cs" />
      <Compile Include="Assets\MyScripts\MyController.cs" />

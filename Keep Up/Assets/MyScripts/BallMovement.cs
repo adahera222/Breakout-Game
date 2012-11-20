@@ -3,15 +3,19 @@ using System.Collections;
 
 public class BallMovement : MonoBehaviour {
 	
+	/// <summary>
+	/// The constant speed of the ball
+	/// </summary>
 	public float constantSpeed = 0;
-	public Vector3 direction = new Vector3(0,0,0);
 	
-	void OnCollisionEnter(Collision collision)
+	/// <summary>
+	/// The direction of the ball
+	/// </summary>
+	public Vector3 direction = new Vector3(0,0,0);
+	public Vector3 Direction
 	{
-		if (collision.gameObject.tag == "Player")
-		{
-			direction = PaddleCollisionDetector.Bounce;
-		}
+		get { return this.direction; }
+		set { this.direction = value; }
 	}
 	
 	// Use this for initialization

@@ -2,42 +2,43 @@ using UnityEngine;
 using System.Collections;
 
 public class PaddleCollisionDetector : MonoBehaviour {
-	public Vector2 bounceRight = new Vector2(1,1);
-	public Vector2 bounceLeft = new Vector2(1,1);
-	public Vector3 v3 = new Vector3(1,1);
-	
-	private static Vector3 _bounce = new Vector3(0,0,0);
-	
-	public static Vector3 Bounce
-	{
-		get { return _bounce; }
-	}
+	// The different bounce directions
+	public Vector3 bounceRight = new Vector3(1,1,0);
+	public Vector3 bounceLeft = new Vector3(-1,1,0);
+	public Vector3 bounceCenter = new Vector3(0,1,0);
 	
 	void OnCollisionEnter (Collision collision)
 	{
 		// Collision.GameObject = Ball
 		// Collider.GameObject = Paddle
 		
-		if (collision.contacts.Length == 1)
+		if (collision.gameObject.tag == "Ball")
 		{
+			BallMovement ballMovement = collision.gameObject.GetComponent<BallMovement>();
 			if (collision.contacts[0].point.x > gameObject.transform.position.x)
 			{
 				Debug.Log("Hit Right Side Of The Paddle");
-				_bounce.Set(1,7,0);
+				ballMovement.Direction = bounceRight;
+				
 			}
 			else if (collision.contacts[0].point.x < gameObject.transform.position.x)
 			{
 				Debug.Log("Hit Left Side Of The Paddle");
-				_bounce.Set(-1,7,0);
+				ballMovement.Direction = bounceLeft;
 			}
 			else if (collision.contacts[0].point.x == gameObject.transform.position.x)
+			{
 				Debug.Log("Hit Center Of The Paddle");
+				
+				ballMovement.Direction = bounceCenter;
+			}
 		}
 
 	}
 	
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
