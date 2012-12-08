@@ -27,13 +27,13 @@ public class My2DController : MonoBehaviour {
 	{
 		if (Input.GetAxisRaw("Horizontal") > 0)
 		{
-		move.x = 1;
+		move.x = speed;
 		controller.Move(move);
 		}
 		
 		if (Input.GetAxisRaw("Horizontal") < 0)
 		{
-			move.x = -1;
+			move.x = -speed;
 			controller.Move(move);
 		}
 	}
