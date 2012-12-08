@@ -9,16 +9,16 @@ public class EdgeCollision : MonoBehaviour {
 		if (collision.gameObject.tag == "Ball")
 		{
 			BallMovement ballMovement = collision.gameObject.GetComponent<BallMovement>();
-			bounce = ballMovement.Direction;
+			bounce = ballMovement.direction;
 			if (gameObject.tag == "Roof")
 			{
-				bounce.y = -ballMovement.Direction.y;
+				bounce.y = -ballMovement.direction.y;
 			}
 			if (gameObject.tag == "Side")
 			{
-				bounce.x = -ballMovement.Direction.x;
+				bounce.x = -ballMovement.direction.x;
 			}
-			ballMovement.Direction = bounce;
+			ballMovement.direction = bounce;
 		}
 	}
 	

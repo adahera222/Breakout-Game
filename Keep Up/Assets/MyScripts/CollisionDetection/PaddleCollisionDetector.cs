@@ -22,7 +22,7 @@ public class PaddleCollisionDetector : MonoBehaviour {
 			{
 				bounce.x = collision.contacts[0].point.x - gameObject.transform.position.x;
 				
-				ballMovement.Direction = bounce;
+				ballMovement.direction = bounce;
 			}
 			
 //			if (collision.contacts[0].point.x > gameObject.transform.position.x)
@@ -43,7 +43,7 @@ public class PaddleCollisionDetector : MonoBehaviour {
 			else if (collision.contacts[0].point.x == gameObject.transform.position.x)
 			{
 				Debug.Log("Hit Center Of The Paddle");
-				ballMovement.Direction = bounceCenter;
+				ballMovement.direction = bounceCenter;
 			}
 		}
 

@@ -13,11 +13,7 @@ public class BallMovement : MonoBehaviour {
 	/// The direction of the ball
 	/// </summary>
 	public Vector3 direction = new Vector3(0,-5,0);
-	public Vector3 Direction
-	{
-		get { return this.direction; }
-		set { this.direction = value; }
-	}
+	public Vector3 baseDirection = new Vector3(0,0,0);
 	
 	void OnCollisionEnter()
 	{
@@ -27,6 +23,7 @@ public class BallMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		speed = constantSpeed;
+		baseDirection = direction;
 	}
 	
 	// Update is called once per frame

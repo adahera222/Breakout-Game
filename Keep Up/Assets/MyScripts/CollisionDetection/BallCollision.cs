@@ -9,7 +9,9 @@ public class BallCollision : MonoBehaviour {
 	{
 		if (collision.gameObject.tag == "Bounds")
 		{
+			BallMovement ballMovement = gameObject.GetComponent<BallMovement>();
 			Debug.Log("Ball is out of bounds");
+			ballMovement.direction = ballMovement.baseDirection;
 			gameObject.transform.position = spawnPoint.position;
 		}
 	}

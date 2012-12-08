@@ -9,7 +9,7 @@ public class BrickCollision : MonoBehaviour {
 		if (collision.gameObject.tag == "Ball")
 		{
 			BallMovement ballMovement = collision.gameObject.GetComponent<BallMovement>();
-			bounce = ballMovement.Direction;
+			bounce = ballMovement.direction;
 			
 			// If collision hit the top of the boxcollider
 //			if (collision.contacts[0].normal == gameObject.transform.up)
@@ -31,7 +31,7 @@ public class BrickCollision : MonoBehaviour {
 				Debug.Log("Hit right or left side");
 				bounce.x = -bounce.x;
 			}
-			ballMovement.Direction = bounce;
+			ballMovement.direction = bounce;
 			Destroy(gameObject);
 		}
 	}
